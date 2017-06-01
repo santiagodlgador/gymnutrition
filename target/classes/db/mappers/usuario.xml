@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD iBatis Mapper 3.0 //EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="mx.edu.uaz.GymNutrition2.config.mappers">
+
+<insert id="guardarUsuario" parameterType="Usuario" >
+	INSERT INTO Usuario
+	 (nombre,apellidos,correo,password,peso,altura,tipoUser,telefono,fecha)
+	VALUES(#{nombre},#{apellidos},#{correo},#{password},#{peso},#{altura},#{tipoUser},#{telefono},#{fecha})
+	
+	
+	<!--  INSERT INTO Usuario 
+			(nombre,apellidos,correo,fecha,telefono)
+	VALUES	(#{nombre},#{apellidos},#{correo},#{fecha},#{telefono});
+	-->
+</insert>
+
+<select id="todosUsuarios" resultMap="resultMapUsuario">
+	SELECT U.idUsuario, U.nombre, U.apellidos, U.correo, U.fecha, U.telefono, U.peso, U.altura, U.tipoUser, U.telefono
+	FROM Usuario U;
+</select>
+
+<resultMap type="Usuario" id="resultMapUsuario">
+	<id property="idUsuario" column="idUsuario"/>
+	<result property="nombre" column="nombre"/>
+	<result property="apellidos" column="apellidos"/>
+	<result property="correo" column="correo"/>
+	<result property="telefono" column="telefono"/>
+	<result property="peso" column="peso"/>
+	<result property="altura" column="altura"/>
+	<result property="fecha" column="fecha"/>
+
+</resultMap>
+
+<delete id="eliminarUsuarios">
+	DELETE FROM Usuario
+	WHERE idUsuario IN  (
+			<foreach collection="list" item="modelo" separator="," >
+				#{modelo.idUsuario}
+			</foreach>
+			)
+</delete>
+</mapper>

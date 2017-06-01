@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD iBatis Mapper 3.0 //EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="mx.edu.uaz.GymNutrition2.config.mappers">
+	<insert id="guardarSeguimiento" parameterType="Seguimiento">
+		INSERT INTO Seguimiento
+			(pecho,abdomen,triceps,espalda,biceps,cuadriceps,gemelos,cadera,peso,talla,edad,fecha,idUsuario)
+		VALUES (#{pecho},#{abdomen},#{triceps},#{espalda},#{biceps},#{cuadriceps},#{gemelos},#{cadera},#{peso},#{talla},#{edad},#{fecha},#{idUsuario.idUsuario});
+	
+	</insert>
+	
+	<select id="todosSeguimientos" resultMap="resultMapSeguimiento">
+		SELECT S.idSeguimiento,S.pecho,S.abdomen,S.triceps,S.espalda,S.biceps,S.cuadriceps,S.gemelos,S.cadera,S.peso,S.talla,S.edad,S.fecha,S.idUsuario,U.nombre as nombre, U.apellidos as apellidos
+		FROM Seguimiento S INNER JOIN Usuario U on S.idUsuario=U.idUsuario;
+	</select>
+	
+	<resultMap type="Seguimiento" id="resultMapSeguimiento">
+		<id property="idSeguimiento" column="idSeguimiento"/>
+		<result property="pecho" column="pecho"/>
+		<result property="abdomen" column="abdomen"/>
+		<result property="triceps" column="triceps"/>
+		<result property="espalda" column="espalda"/>
+		<result property="biceps" column="biceps"/>
+		<result property="cuadriceps" column="cuadriceps"/>
+		<result property="gemelos" column="gemelos"/>
+		<result property="cadera" column="cadera"/>
+		<result property="peso" column="peso"/>
+		<result property="talla" column="talla"/>
+		<result property="edad" column="edad"/>
+		<result property="fecha" column="fecha"/>
+		
+		<association property="idUsuario" javaType="Usuario">
+			<id property="idUsuario" column="idUsuario"/>
+			<result property="nombre" column="nombre"/>
+			<result property="apellidos" column="apellidos"/>
+		</association>
+	</resultMap>
+	
+	<delete id="eliminarSeguimientos">
+		DELETE FROM Seguimiento
+		WHERE idSeguimiento IN (
+		<foreach collection="list" item="modelo" separator=",">
+			#{modelo.idSeguimiento}
+		</foreach>
+		)
+	</delete>
+
+</mapper>

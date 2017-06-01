@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.2">
+ </head>
+ <body>
+  <vaadin-css-layout style-name="form-template" responsive size-full>
+   <vaadin-label style-name="title" responsive width-full plain-text>
+     Registro Usuarios 
+   </vaadin-label>
+   <vaadin-css-layout caption="Información Personal" style-name="form-section" responsive>
+    <vaadin-css-layout style-name="input-group">
+     <vaadin-css-layout style-name="input-wrapper" responsive width="397px">
+      <vaadin-text-field caption="Nombre" responsive width="351px" _id="tfNombre"></vaadin-text-field>
+      <vaadin-text-field caption="Apellidos" responsive width="351px" height="37px" _id="tfApellidos"></vaadin-text-field>
+      <vaadin-text-field caption="Peso" responsive width="346px" _id="tfPeso"></vaadin-text-field>
+      <vaadin-text-field caption="Altura" responsive width="378px" _id="tfAltura"></vaadin-text-field>
+      <vaadin-date-field caption="Fecha de Nacimiento" responsive width="369px" _id="dtfFecha"></vaadin-date-field>
+      <vaadin-text-field caption="Correo Electronico" responsive _id="tfEmail"></vaadin-text-field>
+      <vaadin-password-field caption="Contraseña" responsive _id="pfPassword"></vaadin-password-field>
+      <vaadin-text-field icon="fonticon://Vaadin-Icons/e948" caption="Télefono" responsive _id="tfTelefono"></vaadin-text-field>
+     </vaadin-css-layout>
+     <vaadin-css-layout style-name="input-wrapper"></vaadin-css-layout>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-group" responsive>
+     <vaadin-css-layout style-name="input-wrapper" responsive width-full></vaadin-css-layout>
+    </vaadin-css-layout>
+    <vaadin-text-field caption="Tipo de Usuario (0,1,2)" responsive _id="tfTipoUser"></vaadin-text-field>
+    <vaadin-css-layout style-name="input-group" responsive>
+     <vaadin-css-layout style-name="border" responsive>
+      <vaadin-css-layout style-name="input-wrapper" responsive width="219px"></vaadin-css-layout>
+     </vaadin-css-layout>
+    </vaadin-css-layout>
+    <vaadin-button responsive plain-text _id="btnGuardar">
+      Guardar Usuario 
+    </vaadin-button>
+   </vaadin-css-layout>
+  </vaadin-css-layout>
+ </body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.2">
+ </head>
+ <body>
+  <vaadin-css-layout style-name="form-template" responsive size-full>
+   <vaadin-label style-name="title" width-full plain-text>
+     Seguimiento de Usuario 
+   </vaadin-label>
+   <vaadin-css-layout caption="Medidas del Cuerpo" style-name="form-section">
+    <vaadin-css-layout style-name="input-group">
+     <vaadin-css-layout style-name="input-wrapper">
+      <vaadin-combo-box scroll-to-selected-item caption="Usuario" responsive width="370px" data-item-type="" _id="cbUsers">
+       <option item="english">English</option>
+       <option item="finnish">Finnish</option>
+       <option item="german">German</option>
+       <option item="swedish">Swedish</option>
+       <option item="russian">Russian</option>
+       <option item="polish">Polish</option>
+      </vaadin-combo-box>
+      <vaadin-text-field caption="Pecho" _id="tfPecho"></vaadin-text-field>
+      <vaadin-text-field caption="Espalda" _id="tfEspalda"></vaadin-text-field>
+     </vaadin-css-layout>
+     <vaadin-css-layout style-name="input-wrapper"></vaadin-css-layout>
+     <vaadin-css-layout style-name="input-wrapper">
+      <vaadin-text-field caption="Cintura" placeholder="" _id="tfCintura"></vaadin-text-field>
+      <vaadin-text-field caption="Cadera" placeholder="" _id="tfCadera"></vaadin-text-field>
+     </vaadin-css-layout>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-group">
+     <vaadin-css-layout style-name="input-wrapper" width-full _id="dateTimeSeguimiento">
+      <vaadin-date-field caption="Fecha" _id="dfFecha"></vaadin-date-field>
+      <vaadin-text-field caption="Edad" responsive _id="tfEdad"></vaadin-text-field>
+     </vaadin-css-layout>
+    </vaadin-css-layout>
+    <vaadin-css-layout>
+     <vaadin-css-layout style-name="input-wrapper"></vaadin-css-layout>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-wrapper"></vaadin-css-layout>
+    <vaadin-css-layout style-name="input-wrapper">
+     <vaadin-text-field caption="Triceps" placeholder="" _id="tfTriceps"></vaadin-text-field>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-wrapper">
+     <vaadin-text-field caption="Biceps" placeholder="" _id="tfBiceps"></vaadin-text-field>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-wrapper">
+     <vaadin-text-field caption="Cuadriceps" placeholder="" _id="tfCuadriceps"></vaadin-text-field>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-wrapper">
+     <vaadin-text-field caption="Gemelos" placeholder="" _id="tfGemelos"></vaadin-text-field>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-wrapper">
+     <vaadin-text-field caption="Peso" placeholder="" _id="tfPeso"></vaadin-text-field>
+    </vaadin-css-layout>
+    <vaadin-css-layout style-name="input-wrapper">
+     <vaadin-text-field caption="Talla" placeholder="" _id="tfTalla"></vaadin-text-field>
+    </vaadin-css-layout>
+   </vaadin-css-layout>
+   <vaadin-css-layout style-name="form-section" width-full>
+    <vaadin-css-layout style-name="input-group" width-full>
+     <vaadin-css-layout style-name="input-wrapper">
+      <vaadin-horizontal-layout>
+       <vaadin-button style-name="primary" plain-text _id="btnGuardar">
+         Guardar 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+     </vaadin-css-layout>
+    </vaadin-css-layout>
+   </vaadin-css-layout>
+  </vaadin-css-layout>
+ </body>
+</html>
