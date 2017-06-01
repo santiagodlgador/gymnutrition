@@ -35,8 +35,8 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        setContent(new PrincipalForm());
-    	//setContent(new LoginU());
+        //setContent(new PrincipalForm());
+    	setContent(new LoginU());
     	//setContent(new PrincipalForm());
     	/* Window mainWindow = new Window("Singleuploadclick Application");
     	    Label label = new Label("Hello Vaadin user");
