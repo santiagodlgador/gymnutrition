@@ -18,8 +18,9 @@ public class SubirRutinaForms extends SubirRutina{
 	}
 	
 	public void enlazarDatos(){
-		Image file= (Image) BuscaComponentes.findComponentById(UI.getCurrent(),"file");
-		SubirArchivo receiver = new SubirArchivo(file);
+		//Image file= (Image) BuscaComponentes.findComponentById(UI.getCurrent(),"file");
+		
+		SubirArchivo receiver = new SubirArchivo();
 		//btnSubirRutina.setReceiver(receiver);
 		
 		btnSubirRutina.setReceiver(receiver);

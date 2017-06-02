@@ -12,6 +12,8 @@ public class SeguimientoTabs extends TabSheet{
 		addTab(new SeguimientoGeneral(),"Seguimiento General");
 		addTab(new GraficaForm(),"Grafica");
 		addTab(new ViewPdf(),"PDF");
+		
+		addTab(new VerArchivoForm(),"Ver",VaadinIcons.PLAY);
 	}
 
 }
