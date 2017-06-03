@@ -1850,6 +1850,57 @@ div.v-layout.v-horizontal.v-widget {
 	padding-top: 37px;
 }
 
+.mytheme .pdf-viewer .input-counter {
+	width: 60px;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-counter-box {
+	padding-left: 10px;
+	line-height: 37px;
+	font-weight: bolder;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-button-bar {
+	text-align: center;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-button-bar div {
+	display: inline-block;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-canvas {
+	cursor: move;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-navigation .v-button-previous {
+	border-radius: 5px 0 0 5px;
+	border-right: none;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-navigation .v-button-next {
+	border-radius: 0px 5px 5px 0px;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-size-box {
+	padding-left: 10px;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-size-box .v-button-decrease {
+	border-radius: 5px 0 0 5px;
+	border-right: none;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-size-box .v-button-increase {
+	border-radius: 0px;
+	border-right: none;
+}
+
+.mytheme .pdf-viewer .pdf-viewer-size-box select:focus, .mytheme .pdf-viewer .pdf-viewer-size-box select {
+	border-radius: 0px 5px 5px 0px;
+	height: 37px;
+	box-shadow: none;
+}
+
 .mytheme.v-app, .mytheme.v-app-loading {
 	font: 300 16px/1.55 "Open Sans", sans-serif;
 	color: #464646;

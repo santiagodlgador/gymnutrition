@@ -49,7 +49,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setSuperClass(com.vaadin.shared.JavaScriptExtensionState.class, com.vaadin.shared.ui.grid.renderers.AbstractRendererState.class);
             store.setSuperClass(com.vaadin.shared.ui.label.LabelState.class, com.vaadin.shared.AbstractComponentState.class);
             store.setSuperClass(com.vaadin.shared.ui.link.LinkState.class, com.vaadin.shared.AbstractComponentState.class);
-            store.setSuperClass(pl.pdfviewer.client.share.PdfViewerState.class, com.vaadin.shared.AbstractComponentState.class);
+            store.setSuperClass(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, com.vaadin.shared.AbstractComponentState.class);
             store.setSuperClass(com.vaadin.shared.ui.popupview.PopupViewState.class, com.vaadin.shared.AbstractComponentState.class);
             store.setSuperClass(com.vaadin.shared.ui.grid.renderers.ProgressBarRendererState.class, com.vaadin.shared.ui.grid.renderers.AbstractRendererState.class);
             store.setSuperClass(com.vaadin.shared.ui.TabIndexState.class, com.vaadin.shared.AbstractComponentState.class);
@@ -188,7 +188,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setClass("com.vaadin.ui.Upload", com.vaadin.client.ui.upload.UploadConnector.class);
             store.setClass("com.vaadin.ui.Video", com.vaadin.client.ui.video.VideoConnector.class);
             store.setClass("com.vaadin.ui.Window", com.vaadin.client.ui.window.WindowConnector.class);
-            store.setClass("pl.pdfviewer.PdfViewer", pl.pdfviewer.client.ui.PdfViewerConnector.class);
+            store.setClass("pl.pdfviewer.PdfViewer", pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class);
             store.setConstructor(com.vaadin.client.JavaScriptExtension.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 return com.google.gwt.core.client.GWT.create(com.vaadin.client.JavaScriptExtension.class);
@@ -1230,14 +1230,14 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return com.google.gwt.core.client.GWT.create(java.util.HashMap.class);
               }
             });
-            store.setConstructor(pl.pdfviewer.client.share.PdfViewerState.class, new Invoker() {
+            store.setConstructor(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
-                return com.google.gwt.core.client.GWT.create(pl.pdfviewer.client.share.PdfViewerState.class);
+                return com.google.gwt.core.client.GWT.create(pl.pdfviewer.widgetset.client.share.PdfViewerState.class);
               }
             });
-            store.setConstructor(pl.pdfviewer.client.ui.PdfViewerConnector.class, new Invoker() {
+            store.setConstructor(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new Invoker() {
               public Object invoke(Object target, Object[] params) {
-                return com.google.gwt.core.client.GWT.create(pl.pdfviewer.client.ui.PdfViewerConnector.class);
+                return com.google.gwt.core.client.GWT.create(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class);
               }
             });
             store.setReturnType(com.vaadin.client.JavaScriptExtension.class, "getState", new Type(com.vaadin.shared.JavaScriptExtensionState.class));
@@ -1373,7 +1373,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setReturnType(com.vaadin.client.ui.video.VideoConnector.class, "getState", new Type(com.vaadin.shared.ui.video.VideoState.class));
             store.setReturnType(com.vaadin.client.ui.window.WindowConnector.class, "getWidget", new Type(com.vaadin.client.ui.VWindow.class));
             store.setReturnType(com.vaadin.client.ui.window.WindowConnector.class, "getState", new Type(com.vaadin.shared.ui.window.WindowState.class));
-            store.setReturnType(pl.pdfviewer.client.ui.PdfViewerConnector.class, "getState", new Type(pl.pdfviewer.client.share.PdfViewerState.class));
+            store.setReturnType(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "getState", new Type(pl.pdfviewer.widgetset.client.share.PdfViewerState.class));
             store.setInvoker(com.vaadin.client.connectors.grid.AbstractSelectionModelConnector.class, "onSelectionAllowedChange",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
                 target.@com.vaadin.client.connectors.grid.AbstractSelectionModelConnector::onSelectionAllowedChange(*)();
@@ -1818,15 +1818,15 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return null;
               }
             });
+            load3();
+          }
+          private void load3() {
             store.setInvoker(com.vaadin.client.widgets.Grid.class, "setHeightMode",new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 ((com.vaadin.client.widgets.Grid) target).setHeightMode((com.vaadin.shared.ui.grid.HeightMode) params[0]);
                 return null;
               }
             });
-            load3();
-          }
-          private void load3() {
             store.setInvoker(com.vaadin.shared.data.DataCommunicatorClientRpc.class, "reset",new Invoker() {
               public Object invoke(Object target, Object[] params) {
                 ((com.vaadin.shared.data.DataCommunicatorClientRpc) target).reset((java.lang.Integer) params[0]);
@@ -1995,87 +1995,51 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 return null;
               }
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setAdiitionalVisible",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "setDecreaseButtonCaption",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setAdiitionalVisible(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::setDecreaseButtonCaption(*)();
                 return null;
               }-*/;
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setAngleVisible",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "setIncreaseButtonCaption",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setAngleVisible(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::setIncreaseButtonCaption(*)();
                 return null;
               }-*/;
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setBackAngleButtonCaption",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "setNextButtonCaption",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setBackAngleButtonCaption(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::setNextButtonCaption(*)();
                 return null;
               }-*/;
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setDecreaseButtonCaption",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "setPageCaption",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setDecreaseButtonCaption(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::setPageCaption(*)();
                 return null;
               }-*/;
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setDownloadButtonCaption",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "setPreviousButtonCaption",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setDownloadButtonCaption(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::setPreviousButtonCaption(*)();
                 return null;
               }-*/;
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setIncreaseButtonCaption",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "setToPageCaption",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setIncreaseButtonCaption(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::setToPageCaption(*)();
                 return null;
               }-*/;
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setNextAngleButtonCaption",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "showPage",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setNextAngleButtonCaption(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::showPage(*)();
                 return null;
               }-*/;
             });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setNextButtonCaption",new JsniInvoker() {
+            store.setInvoker(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, "updateResource",new JsniInvoker() {
               protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setNextButtonCaption(*)();
-                return null;
-              }-*/;
-            });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setPageCaption",new JsniInvoker() {
-              protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setPageCaption(*)();
-                return null;
-              }-*/;
-            });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setPreviousButtonCaption",new JsniInvoker() {
-              protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setPreviousButtonCaption(*)();
-                return null;
-              }-*/;
-            });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setPrintButtonCaption",new JsniInvoker() {
-              protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setPrintButtonCaption(*)();
-                return null;
-              }-*/;
-            });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "setToPageCaption",new JsniInvoker() {
-              protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::setToPageCaption(*)();
-                return null;
-              }-*/;
-            });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "showPage",new JsniInvoker() {
-              protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::showPage(*)();
-                return null;
-              }-*/;
-            });
-            store.setInvoker(pl.pdfviewer.client.ui.PdfViewerConnector.class, "updateResource",new JsniInvoker() {
-              protected native Object jsniInvoke(Object target, com.vaadin.client.JsArrayObject<Object> params) /*-{ 
-                target.@pl.pdfviewer.client.ui.PdfViewerConnector::updateResource(*)();
+                target.@pl.pdfviewer.widgetset.client.ui.PdfViewerConnector::updateResource(*)();
                 return null;
               }-*/;
             });
@@ -2227,9 +2191,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 };
               }
             });
-            load4();
-          }
-          private void load4() {
             store.setProxyHandler(com.vaadin.shared.data.selection.GridMultiSelectServerRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
               public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
                 return new com.vaadin.shared.data.selection.GridMultiSelectServerRpc() {
@@ -2248,6 +2209,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 };
               }
             });
+            load4();
+          }
+          private void load4() {
             store.setProxyHandler(com.vaadin.shared.data.selection.MultiSelectServerRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
               public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
                 return new com.vaadin.shared.data.selection.MultiSelectServerRpc() {
@@ -2632,9 +2596,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
                 };
               }
             });
-            store.setProxyHandler(pl.pdfviewer.client.ui.PdfViewerServerRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
+            store.setProxyHandler(pl.pdfviewer.widgetset.client.ui.PdfViewerServerRpc.class, new com.vaadin.client.metadata.ProxyHandler() {
               public Object createProxy(final com.vaadin.client.metadata.InvokationHandler handler) {
-                return new pl.pdfviewer.client.ui.PdfViewerServerRpc() {
+                return new pl.pdfviewer.widgetset.client.ui.PdfViewerServerRpc() {
                 };
               }
             });
@@ -2659,7 +2623,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setMethodAttribute(com.vaadin.shared.ui.ui.UIServerRpc.class, "scroll", com.vaadin.client.metadata.TypeDataStore.MethodAttribute.DELAYED);
             store.setMethodAttribute(com.vaadin.shared.ui.ui.UIServerRpc.class, "scroll", com.vaadin.client.metadata.TypeDataStore.MethodAttribute.LAST_ONLY);
             loadJsBundle(store);
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "additionalVisible", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData.class, "alignment", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState.ChildComponentData.class, "alignmentBitmask", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.MultiSelectionModelState.class, "allSelected", new Type(java.lang.Boolean.class));
@@ -2667,12 +2630,8 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "altKey", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.AbstractMediaState.class, "altText", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.AbstractEmbeddedState.class, "alternateText", new Type(java.lang.String.class));
-            load5();
-          }
-          private void load5() {
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.PushConfigurationState.class, "alwaysUseXhrForServerRequests", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "am", new Type(java.lang.String.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "angleVisible", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.flash.FlashState.class, "archive", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistivePostfix", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistivePrefix", new Type(java.lang.String.class));
@@ -2680,8 +2639,10 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistiveTabStopBottomText", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "assistiveTabStopTopText", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.AbstractMediaState.class, "autoplay", new Type(java.lang.Boolean.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "backAngle", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.editor.EditorState.class, "buffered", new Type(java.lang.Boolean.class));
+            load5();
+          }
+          private void load5() {
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "button", new Type(com.vaadin.shared.MouseEventDetails.MouseButton.class));
             store.setPropertyType(com.vaadin.shared.JavaScriptExtensionState.class, "callbackNames", new Type("java.util.Set", new Type[] {new Type(java.lang.String.class), }));
             store.setPropertyType(com.vaadin.shared.ui.JavaScriptComponentState.class, "callbackNames", new Type("java.util.Set", new Type[] {new Type(java.lang.String.class), }));
@@ -2724,7 +2685,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "ctrlKey", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "dateFormat", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "dayNames", new Type(java.lang.String[].class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "decreaseCaption", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "decreaseCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.SectionState.RowState.class, "defaultHeader", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "description", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "description", new Type(java.lang.String.class));
@@ -2736,7 +2697,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.ReconnectDialogConfigurationState.class, "dialogText", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.ReconnectDialogConfigurationState.class, "dialogTextGaveUp", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.button.ButtonState.class, "disableOnClick", new Type(java.lang.Boolean.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "downloadCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "draggable", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.ColumnState.class, "editable", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.flash.FlashState.class, "embedParams", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(java.lang.String.class), }));
@@ -2751,7 +2711,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.orderedlayout.AbstractOrderedLayoutState.ChildComponentData.class, "expandRatio", new Type(java.lang.Float.class));
             store.setPropertyType(com.vaadin.shared.ui.gridlayout.GridLayoutState.class, "explicitColRatios", new Type("java.util.Set", new Type[] {new Type(java.lang.Integer.class), }));
             store.setPropertyType(com.vaadin.shared.ui.gridlayout.GridLayoutState.class, "explicitRowRatios", new Type("java.util.Set", new Type[] {new Type(java.lang.Integer.class), }));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "externalFile", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "externalFile", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.BrowserWindowOpenerState.class, "features", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState.class, "firstChild", new Type(com.vaadin.shared.Connector.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "firstDayOfWeek", new Type(java.lang.Integer.class));
@@ -2782,7 +2742,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "id", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "id", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.upload.UploadState.class, "immediateMode", new Type(java.lang.Boolean.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "incraseCaption", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "incraseCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.progressindicator.ProgressBarState.class, "indeterminate", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.ColumnState.class, "internalId", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "key", new Type(java.lang.String.class));
@@ -2813,15 +2773,14 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.link.LinkState.class, "name", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "name", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.extension.javascriptmanager.JavaScriptManagerState.class, "names", new Type("java.util.Set", new Type[] {new Type(java.lang.String.class), }));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "nextAngle", new Type(java.lang.String.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "nextPageCaption", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "nextPageCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "notificationConfigurations", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(com.vaadin.shared.ui.ui.UIState.NotificationTypeConfiguration.class), }));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.NotificationTypeConfiguration.class, "notificationRole", new Type(com.vaadin.shared.ui.ui.NotificationRole.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState.class, "openDelay", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.slider.SliderState.class, "orientation", new Type(com.vaadin.shared.ui.slider.SliderOrientation.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "overlayContainerLabel", new Type(java.lang.String.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "page", new Type(java.lang.Integer.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "pageCaption", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "page", new Type(java.lang.Integer.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "pageCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.combobox.ComboBoxState.class, "pageLength", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "pageState", new Type(com.vaadin.shared.ui.ui.PageState.class));
             store.setPropertyType(com.vaadin.shared.ui.BrowserWindowOpenerState.class, "parameters", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(java.lang.String.class), }));
@@ -2839,9 +2798,8 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "positionY", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.NotificationTypeConfiguration.class, "postfix", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.NotificationTypeConfiguration.class, "prefix", new Type(java.lang.String.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "previousPageCaption", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "previousPageCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "primaryStyleName", new Type(java.lang.String.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "printCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "pushConfiguration", new Type(com.vaadin.shared.ui.ui.UIState.PushConfigurationState.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.PushConfigurationState.class, "pushUrl", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState.class, "quickOpenDelay", new Type(java.lang.Integer.class));
@@ -2861,7 +2819,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "resizable", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "resizeLazy", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.slider.SliderState.class, "resolution", new Type(java.lang.Integer.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "resourceFile", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "resourceFile", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.communication.SharedState.class, "resources", new Type("java.util.Map", new Type[] {new Type(java.lang.String.class), new Type(com.vaadin.shared.communication.URLReference.class), }));
             store.setPropertyType(com.vaadin.shared.ui.twincolselect.TwinColSelectState.class, "rightColumnCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.window.WindowState.class, "role", new Type(com.vaadin.shared.ui.window.WindowRole.class));
@@ -2890,9 +2848,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "shiftKey", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "shortDayNames", new Type(java.lang.String[].class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "shortMonthNames", new Type(java.lang.String[].class));
-            load6();
-          }
-          private void load6() {
             store.setPropertyType(com.vaadin.shared.ui.AbstractMediaState.class, "showControls", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "sortColumns", new Type(java.lang.String[].class));
             store.setPropertyType(com.vaadin.shared.ui.grid.GridState.class, "sortDirs", new Type(com.vaadin.shared.data.sort.SortDirection[].class));
@@ -2906,6 +2861,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.progressindicator.ProgressBarState.class, "state", new Type(java.lang.Float.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.SectionState.CellState.class, "styleName", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.grid.SectionState.RowState.class, "styleName", new Type(java.lang.String.class));
+            load6();
+          }
+          private void load6() {
             store.setPropertyType(com.vaadin.shared.ui.tabsheet.TabState.class, "styleName", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.AbstractComponentState.class, "styles", new Type("java.util.List", new Type[] {new Type(java.lang.String.class), }));
             store.setPropertyType(com.vaadin.shared.ui.combobox.ComboBoxState.class, "suggestionPopupWidth", new Type(java.lang.String.class));
@@ -2931,7 +2889,7 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "theme", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LoadingIndicatorConfigurationState.class, "thirdDelay", new Type(java.lang.Integer.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.PageState.class, "title", new Type(java.lang.String.class));
-            store.setPropertyType(pl.pdfviewer.client.share.PdfViewerState.class, "toPageCaption", new Type(java.lang.String.class));
+            store.setPropertyType(pl.pdfviewer.widgetset.client.share.PdfViewerState.class, "toPageCaption", new Type(java.lang.String.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.class, "tooltipConfiguration", new Type(com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState.class));
             store.setPropertyType(com.vaadin.shared.ui.ui.UIState.LocaleData.class, "twelveHourClock", new Type(java.lang.Boolean.class));
             store.setPropertyType(com.vaadin.shared.MouseEventDetails.class, "type", new Type(java.lang.Integer.class));
@@ -3385,9 +3343,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setPresentationType(com.vaadin.client.connectors.grid.ProgressBarRendererConnector.class, java.lang.Double.class);
             store.setPresentationType(com.vaadin.client.connectors.grid.TextRendererConnector.class, java.lang.String.class);
             store.setPresentationType(com.vaadin.client.connectors.grid.UnsafeHtmlRendererConnector.class, java.lang.String.class);
-            load7();
-          }
-          private void load7() {
             store.setDelegateToWidget(com.vaadin.shared.ui.accordion.AccordionState.class, "tabCaptionsAsHtml", "");
             store.setDelegateToWidget(com.vaadin.shared.ui.combobox.ComboBoxState.class, "allowNewItems", "");
             store.setDelegateToWidget(com.vaadin.shared.ui.combobox.ComboBoxState.class, "pageLength", "");
@@ -3406,6 +3361,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.setDelegateToWidget(com.vaadin.shared.ui.passwordfield.PasswordFieldState.class, "maxLength", "");
             store.setDelegateToWidget(com.vaadin.shared.ui.passwordfield.PasswordFieldState.class, "placeholder", "");
             store.setDelegateToWidget(com.vaadin.shared.ui.passwordfield.PasswordFieldState.class, "text", "");
+            load7();
+          }
+          private void load7() {
             store.setDelegateToWidget(com.vaadin.shared.ui.tabsheet.TabsheetState.class, "tabCaptionsAsHtml", "");
             store.setDelegateToWidget(com.vaadin.shared.ui.textarea.TextAreaState.class, "maxLength", "");
             store.setDelegateToWidget(com.vaadin.shared.ui.textarea.TextAreaState.class, "placeholder", "");
@@ -3520,37 +3478,18 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             store.addOnStateChangeMethod(com.vaadin.client.ui.upload.UploadConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.video.VideoConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
             store.addOnStateChangeMethod(com.vaadin.client.ui.window.WindowConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setAdiitionalVisible", new String[] {"additionalVisible", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setAngleVisible", new String[] {"angleVisible", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setBackAngleButtonCaption", new String[] {"backAngle", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setDecreaseButtonCaption", new String[] {"decreaseCaption", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setDownloadButtonCaption", new String[] {"downloadCaption", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setIncreaseButtonCaption", new String[] {"incraseCaption", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setNextAngleButtonCaption", new String[] {"nextAngle", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setNextButtonCaption", new String[] {"nextPageCaption", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setPageCaption", new String[] {"pageCaption", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setPreviousButtonCaption", new String[] {"previousPageCaption", }));
-            load8();
-          }
-          private void load8() {
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setPrintButtonCaption", new String[] {"printCaption", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setToPageCaption", new String[] {"toPageCaption", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("showPage", new String[] {"page", }));
-            store.addOnStateChangeMethod(pl.pdfviewer.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("updateResource", new String[] {"resources", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod(com.vaadin.client.ui.AbstractComponentConnector.class, "handleContextClickListenerChange", new String[] {"registeredEventListeners", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setDecreaseButtonCaption", new String[] {"decreaseCaption", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setIncreaseButtonCaption", new String[] {"incraseCaption", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setNextButtonCaption", new String[] {"nextPageCaption", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setPageCaption", new String[] {"pageCaption", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setPreviousButtonCaption", new String[] {"previousPageCaption", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("setToPageCaption", new String[] {"toPageCaption", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("showPage", new String[] {"page", }));
+            store.addOnStateChangeMethod(pl.pdfviewer.widgetset.client.ui.PdfViewerConnector.class, new com.vaadin.client.metadata.OnStateChangeMethod("updateResource", new String[] {"resources", }));
           }
           @com.google.gwt.core.client.UnsafeNativeLong
           private native void loadNativeJs(com.vaadin.client.metadata.TypeDataStore store) /*-{
-            var data = {
-              setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::additionalVisible = value;
-              },
-              getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::additionalVisible;
-              }
-            };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'additionalVisible', data);
-            
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.gridlayout.GridLayoutState.ChildComponentData::alignment = value.@java.lang.Integer::intValue()();
@@ -3645,16 +3584,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::angleVisible = value;
-              },
-              getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::angleVisible;
-              }
-            };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'angleVisible', data);
-            
-            var data = {
-              setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.flash.FlashState::archive = value;
               },
               getter: function(bean) {
@@ -3728,16 +3657,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.AbstractMediaState::class, 'autoplay', data);
-            
-            var data = {
-              setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::backAngle = value;
-              },
-              getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::backAngle;
-              }
-            };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'backAngle', data);
             
             var data = {
               setter: function(bean, value) {
@@ -4153,9 +4072,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.MouseEventDetails::class, 'ctrlKey', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs0(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.ui.UIState.LocaleData::dateFormat = value;
@@ -4178,14 +4094,17 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::decreaseCaption = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::decreaseCaption = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::decreaseCaption;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::decreaseCaption;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'decreaseCaption', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'decreaseCaption', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs0(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.grid.SectionState.RowState::defaultHeader = value.@java.lang.Boolean::booleanValue()();
@@ -4299,16 +4218,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.button.ButtonState::class, 'disableOnClick', data);
-            
-            var data = {
-              setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::downloadCaption = value;
-              },
-              getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::downloadCaption;
-              }
-            };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'downloadCaption', data);
             
             var data = {
               noLayout: 1, 
@@ -4453,13 +4362,13 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::externalFile = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::externalFile = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::externalFile;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::externalFile;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'externalFile', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'externalFile', data);
             
             var data = {
               setter: function(bean, value) {
@@ -4753,9 +4662,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.tabsheet.TabState::class, 'id', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs1(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.upload.UploadState::immediateMode = value.@java.lang.Boolean::booleanValue()();
@@ -4768,13 +4674,13 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::incraseCaption = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::incraseCaption = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::incraseCaption;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::incraseCaption;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'incraseCaption', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'incraseCaption', data);
             
             var data = {
               setter: function(bean, value) {
@@ -4786,6 +4692,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.progressindicator.ProgressBarState::class, 'indeterminate', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs1(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.grid.ColumnState::internalId = value;
@@ -5083,23 +4992,13 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::nextAngle = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::nextPageCaption = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::nextAngle;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::nextPageCaption;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'nextAngle', data);
-            
-            var data = {
-              setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::nextPageCaption = value;
-              },
-              getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::nextPageCaption;
-              }
-            };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'nextPageCaption', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'nextPageCaption', data);
             
             var data = {
               setter: function(bean, value) {
@@ -5153,23 +5052,23 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::page = value.@java.lang.Integer::intValue()();
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::page = value.@java.lang.Integer::intValue()();
               },
               getter: function(bean) {
-                return @java.lang.Integer::valueOf(I)(bean.@pl.pdfviewer.client.share.PdfViewerState::page);
+                return @java.lang.Integer::valueOf(I)(bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::page);
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'page', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'page', data);
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::pageCaption = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::pageCaption = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::pageCaption;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::pageCaption;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'pageCaption', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'pageCaption', data);
             
             var data = {
               setter: function(bean, value) {
@@ -5348,17 +5247,14 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::previousPageCaption = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::previousPageCaption = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::previousPageCaption;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::previousPageCaption;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'previousPageCaption', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'previousPageCaption', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs2(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.AbstractComponentState::primaryStyleName = value;
@@ -5368,16 +5264,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
               }
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.AbstractComponentState::class, 'primaryStyleName', data);
-            
-            var data = {
-              setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::printCaption = value;
-              },
-              getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::printCaption;
-              }
-            };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'printCaption', data);
             
             var data = {
               setter: function(bean, value) {
@@ -5409,6 +5295,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState::class, 'quickOpenDelay', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs2(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.ui.UIState.TooltipConfigurationState::quickOpenTimeout = value.@java.lang.Integer::intValue()();
@@ -5577,13 +5466,13 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::resourceFile = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::resourceFile = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::resourceFile;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::resourceFile;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'resourceFile', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'resourceFile', data);
             
             var data = {
               setter: function(bean, value) {
@@ -5958,9 +5847,6 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.splitpanel.AbstractSplitPanelState::class, 'splitterState', data);
             
-          }-*/;
-          @com.google.gwt.core.client.UnsafeNativeLong
-          private native void loadNativeJs3(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.ui.flash.FlashState::standby = value;
@@ -6012,6 +5898,9 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             };
             store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@com.vaadin.shared.ui.tabsheet.TabState::class, 'styleName', data);
             
+          }-*/;
+          @com.google.gwt.core.client.UnsafeNativeLong
+          private native void loadNativeJs3(com.vaadin.client.metadata.TypeDataStore store) /*-{
             var data = {
               setter: function(bean, value) {
                 bean.@com.vaadin.shared.AbstractComponentState::styles = value;
@@ -6259,13 +6148,13 @@ public class ConnectorBundleLoaderImpl extends com.vaadin.client.metadata.Connec
             
             var data = {
               setter: function(bean, value) {
-                bean.@pl.pdfviewer.client.share.PdfViewerState::toPageCaption = value;
+                bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::toPageCaption = value;
               },
               getter: function(bean) {
-                return bean.@pl.pdfviewer.client.share.PdfViewerState::toPageCaption;
+                return bean.@pl.pdfviewer.widgetset.client.share.PdfViewerState::toPageCaption;
               }
             };
-            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.client.share.PdfViewerState::class, 'toPageCaption', data);
+            store.@com.vaadin.client.metadata.TypeDataStore::setPropertyData(Ljava/lang/Class;Ljava/lang/String;Lcom/google/gwt/core/client/JavaScriptObject;)(@pl.pdfviewer.widgetset.client.share.PdfViewerState::class, 'toPageCaption', data);
             
             var data = {
               setter: function(bean, value) {

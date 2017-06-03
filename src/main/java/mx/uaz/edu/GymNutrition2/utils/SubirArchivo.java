@@ -3,6 +3,8 @@ package mx.uaz.edu.GymNutrition2.utils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
@@ -22,6 +24,7 @@ public class SubirArchivo implements Receiver, SucceededListener{
 	//private Image arch;
 	private String ruta, userFile;
 	private Usuario user;
+	private List<String> lista=new ArrayList<String>();
 	
 	public SubirArchivo(){
 		//userFile=user.getNombre()
@@ -53,11 +56,13 @@ public class SubirArchivo implements Receiver, SucceededListener{
 		
 		if(!filename.equals("")){
 			String ext,fileR;
+			List fileRut;
 			int dot= filename.lastIndexOf('.');
 			ext =filename.substring(dot + 1).toLowerCase();
 			
 			if( ext.equals("pdf") ){
-				/*if(!fileR.equals("")){
+				/*fileR=searchFile();
+				if(!fileR.equals("")){
 					file = new File(ruta +fileR);
 					file.delete();
 				}*/
@@ -80,6 +85,28 @@ public class SubirArchivo implements Receiver, SucceededListener{
 		
 		return fos;
 	}
+	
+	public List searchFile(){
+		String files[];
+		String f="";
+		String archivo;
+		File dir = new File(ruta);
+		//lista=new List();
+		//List archivos=new List;
+		files=dir.list();
+		System.out.println(files.length);
+		for (int i = 0; i < files.length; i++) {
+			System.out.println(i);
+			//int dot = files[i].lastIndexOf('.');
+			//archivo=files[i].substring(0,dot);
+			
+			lista.add(files[i]);
+			f=files[i];
+			
+		}
+		return lista;
+	}
+	
 	
 
 
